@@ -1,0 +1,129 @@
+:root {
+  --background: #ebebeb;
+  --foreground: #f8f7ff;
+  --text: #003459;
+  --error: #c1121f;
+  --success: #06d6a0;
+  --shadow: #073B4C;
+  --header: #118AB2;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0 0;
+  margin: 0 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Roboto', 'Inter', 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--background);
+}
+
+.screen {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.screen > header {
+  background-color: var(--header);
+  color: white;
+  text-align: center;
+  padding: 2em 0;
+  margin-bottom: 4em;
+  width: 100%;
+}
+
+.screen header h1 {
+  font-weight: 300;
+}
+
+.container {
+  flex: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 0 0.6rem;
+  max-width: 1600px;
+}
+
+.details {
+  padding: 1em 0;
+  border-radius: 4px;
+  box-shadow: 0 0 0.1rem var(--shadow);
+  background-color: var(--foreground);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
+  flex-basis: 15%;
+}
+
+.details:hover {
+  box-shadow: 0 0 0.25rem var(--shadow);
+}
+
+.details .content div + div {
+  margin-top: 4px;
+}
+
+.error:not(.content) {
+  color: white;
+  background-color: var(--error);
+}
+
+.content.error {
+  color: var(--error);
+  margin: 0;
+}
+
+.success:not(.content) {
+  background-color: var(--success);
+  color: white;
+}
+
+.success, .error {
+  width: 100%;
+  text-align: center;
+  padding: 0.5em;
+  margin: 0.5rem 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .details {
+    flex-basis: 30%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .screen header h1 {
+    font-size: 1.5em;
+  }
+
+  .details {
+    flex-basis: 90%;
+    flex-grow: 1;
+  }
+}
